@@ -273,7 +273,9 @@ public class WebRtcClient {
         MessageHandler messageHandler = new MessageHandler();
 
         try {
-            client = IO.socket(host);
+           /* IO.Options opts = new IO.Options();
+            opts.secure = true;*/
+            client = IO.socket(host/*,opts*/);
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
@@ -310,10 +312,15 @@ public class WebRtcClient {
         for (Peer peer : peers.values()) {
             peer.pc.dispose();
         }
-        videoSource.dispose();
+
+        if(null != videoSource) {
+            videoSource.stop();
+            videoSource.dispose();
+        }
         factory.dispose();
         client.disconnect();
         client.close();
+
     }
 
     private int findEndPoint() {
@@ -334,7 +341,9 @@ public class WebRtcClient {
         try {
             JSONObject message = new JSONObject();
             message.put("name", name);
+            message.put("dni","47308319X");
             client.emit("readyToStream", message);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,7 @@
 package fr.pchab.androidrtc;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Point;
 import android.opengl.GLSurfaceView;
@@ -56,7 +57,7 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
                         | LayoutParams.FLAG_TURN_SCREEN_ON);
         setContentView(R.layout.main);
         mSocketAddress = "http://" + getResources().getString(R.string.host);
-        mSocketAddress += (":" + getResources().getString(R.string.port) + "/");
+        mSocketAddress += (":" + getResources().getString(R.string.port) );
 
         vsv = (GLSurfaceView) findViewById(R.id.glview_call);
         vsv.setPreserveEGLContextOnPause(true);

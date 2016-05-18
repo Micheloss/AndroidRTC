@@ -1,6 +1,7 @@
 package fr.pchab.webrtcclient;
 
-public class PeerConnectionParameters {
+public class
+PeerConnectionParameters {
     public final boolean videoCallEnabled;
     public final boolean loopback;
     public final int videoWidth;
@@ -11,6 +12,7 @@ public class PeerConnectionParameters {
     public final boolean videoCodecHwAcceleration;
     public final int audioStartBitrate;
     public final String audioCodec;
+    
     public final boolean cpuOveruseDetection;
     public PeerConnectionParameters(
             boolean videoCallEnabled, boolean loopback,
